@@ -8,7 +8,7 @@ import MenuOverlay from "./MenuOverlay";
 const navLink = [
   { title: "About", path: "#about" },
   { title: "Project", path: "#project" },
-  { title: "Contact", path: "#contact" }, // fixed typo
+  { title: "Contact", path: "#contact" }, 
 ];
 
 const Navbar = () => {

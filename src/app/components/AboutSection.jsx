@@ -2,10 +2,50 @@
 
 import React, { useTransition, useState, startTransition } from "react";
 import Image from "next/image";
+import TabButtons from "./TabButtons";
+import { Content } from "next/font/google";
+
+const TAB_DATA = [
+  {
+    title:"Skills",
+    id:"skills",
+    content:(
+      <ul>
+        <li>pyten</li>
+        <li>java</li>
+        <li>postgresSQl</li>
+
+      </ul>
+    )
+  },
+    {
+    title:"Education",
+    id:"education",
+    content:(
+      <ul>
+        <li>udasity boot compe</li>
+        <li>BITS College</li>
+       
+        
+      </ul>
+    )
+  },
+    {
+    title:"Experience",
+    id:"experience",
+    content:(
+      <ul>
+        <li>fandemtale of web devlopment</li>
+     
+        
+      </ul>
+    )
+  }
+]
 
 const AboutSection = () => {
   const [tab, setTab] = useState("skills");
-  const [isPending, startTransition] = useTransition();
+  const [isPending ,startTransition  ] = useTransition();
 
   const handleTabChange = (id) => {
     startTransition(() => {
@@ -22,7 +62,7 @@ const AboutSection = () => {
           height={500}
           alt="Kirubel"
         />
-        <div>
+        <div className="mt-4 md:mt-0 text-left"> 
           <h2 className="text-4xl font-bold text-white mb-4">About Me</h2>
           <p className="text-base lg:text-lg">
             Kirubel Mamushet is a dedicated and passionate software engineering student with three years of
@@ -32,25 +72,20 @@ const AboutSection = () => {
             learning and innovation, with a keen interest in building efficient, user-centered
             software solutions.
           </p>
-          <div className="flex flex-row mt-8 space-x-4 text-[#ADB7BE]">
-            <span
-              onClick={() => handleTabChange("skills")}
-              className={`cursor-pointer font-semibold hover:text-white ${tab === "skills" ? "text-white" : ""}`}
-            >
-              Skills
-            </span>
-            <span
-              onClick={() => handleTabChange("education")}
-              className={`cursor-pointer font-semibold hover:text-white ${tab === "education" ? "text-white" : ""}`}
-            >
-              Education
-            </span>
-            <span
-              onClick={() => handleTabChange("experience")}
-              className={`cursor-pointer font-semibold hover:text-white ${tab === "experience" ? "text-white" : ""}`}
-            >
-              Experience
-            </span>
+          <div className="flex flex-row  mt-8 ">
+            <TabButtons selectTab ={() => handleTabChange("skills")}
+                        active={tab==="skills"}>{" "} Skills{""}</TabButtons>
+            
+            <TabButtons selectTab ={() => handleTabChange("education")}
+                        active={tab==="Education"}>{" "} Education{""}</TabButtons>
+            
+            <TabButtons selectTab ={() => handleTabChange("experience")}
+                        active={tab==="Experience"}>{""} Experience{""}</TabButtons>
+
+          
+          </div>
+          <div className="mt-8" >{ TAB_DATA.find((t) =>t.id ===tab).content}
+
           </div>
         </div>
       </div>
