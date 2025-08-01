@@ -77,10 +77,10 @@ const AboutSection = () => {
                         active={tab==="skills"}>{" "} Skills{""}</TabButtons>
             
             <TabButtons selectTab ={() => handleTabChange("education")}
-                        active={tab==="Education"}>{" "} Education{""}</TabButtons>
+                        active={tab==="education"}>{" "} Education{""}</TabButtons>
             
             <TabButtons selectTab ={() => handleTabChange("experience")}
-                        active={tab==="Experience"}>{""} Experience{""}</TabButtons>
+                        active={tab==="experience"}>{""} Experience{""}</TabButtons>
 
           
           </div>

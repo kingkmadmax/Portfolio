@@ -55,7 +55,7 @@ const HeroSection =()=>{
                     alt="hello world"
                     className="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
                     width={100}
-                    height={20}
+                    height={100}
                 />
                 </div>
            </div>
