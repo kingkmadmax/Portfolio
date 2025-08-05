@@ -50,7 +50,7 @@ const Project_Data =[
 const ProjectSection =() =>{
     return (
         <>
-            <h2>My projects</h2>
+            <h2 className="text-center text-4xl font-bold text-white mt-4">My projects</h2>
             <div>{Project_Data.map((project) => 
             <ProjectCard 
             key={project.id}
@@ -58,6 +58,7 @@ const ProjectSection =() =>{
             title={project.title}
             description={project.description}
             imgUrl={project.image}
+            tags={project.tag}
             /> )}</div>
         </>
 
