@@ -7,7 +7,7 @@ import LinkedinIcons from "../../../public/linkedin-icon.svg"
 const EmailSection = () => {
   return (
     <section className='grid md:grid-cols-2 my-12 md:my-12 py-24 gap-4 relative'>
-     <div className="bg-[radial-gradient(ellipse_at_center,_#1e3a8a,_transparent)] rounded-full h-80 w-80 z-0 blur-lg absolute top-3/4 -left-0 transform -translate-x-1/2 "></div>
+     <div className="bg-[radial-gradient(ellipse_at_center,_#1e3a8a,_transparent)] rounded-full h-80 w-80 z-0 blur-lg absolute top-4/5 -left-10 transform -translate-x-1/2 "></div>
 
 
       <div className='z-0'>
