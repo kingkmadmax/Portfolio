@@ -1,10 +1,38 @@
-import React from 'react'
+"use client";
+import React, {useState} from 'react';
 import Link from 'next/link'
 import Image from 'next/image'
 import GithubIcon from "../../../public/github-icon.svg"
 import LinkedinIcons from "../../../public/linkedin-icon.svg"
+import { headers } from 'next/headers'
+import { useState } from 'react';
 
 const EmailSection = () => {
+  const [EmailSubmitted,setEmailSubmitted] =useState(false);
+  const handleSection =async (e)=>{
+    e.preventDefault();
+  const  data ={
+    email: e.target.email.value,
+    subject:e.target.subject.value,
+    message:e.target.message.value,
+
+  }
+  const JSONdata=JSON.stringify(data)
+  const endpoint ="/api/send";
+  const options ={
+    method:'POST',
+    headers:{
+      'Content-Type':'application/json',
+    },
+    body:JSONdata,
+  }
+  const response  =await fetch(endpoint,options);
+  const resData =await response.json();
+  console.log(resData);
+  if (response.status==='200'){
+    console.log('Message sent.')
+  }
+}
   return (
     <section className='grid md:grid-cols-2 my-12 md:my-12 py-24 gap-4 relative'>
      <div className="bg-[radial-gradient(ellipse_at_center,_#1e3a8a,_transparent)] rounded-full h-80 w-80 z-0 blur-lg absolute top-4/5 -left-10 transform -translate-x-1/2 "></div>
@@ -40,13 +68,14 @@ const EmailSection = () => {
         </div>
         <div>
           
-            <form className="flex flex-col gap-6">
+            <form className="flex flex-col gap-6" onSubmit={handleSection}>
                <div className='mb-2'>
                 <label
                  htmlFor='email'
                   className='text-white block mb-2 text-sm font-medium'>
                   Email  </label>
                   <input
+                    name='email'
                     type='email'
                     id='email'
                     required
@@ -60,6 +89,7 @@ const EmailSection = () => {
                   <label htmlFor='subject' 
                   className='text-white block mb-2 text-sm font-medium'>
                    Subject </label><input
+                   name='subject'
                     type='subject'
                     id='subject'
                     required
