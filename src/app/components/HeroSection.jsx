@@ -1,65 +1,75 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import { TypeAnimation } from 'react-type-animation';
+import { TypeAnimation } from "react-type-animation";
 
+const HeroSection = () => {
+  return (
+    <section className="lg:py-16">
+      <div className="grid grid-cols-1 lg:grid-cols-12 items-center gap-8">
+        {/* Left side (Text) */}
+        <div className="col-span-7 text-center lg:text-left">
+          <h1 className="text-white mb-6 text-4xl sm:text-5xl lg:text-7xl font-extrabold leading-tight">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-blue-950">
+              Hello, I'm{" "}
+            </span>
+            <br />
+            <span
+              className="inline-block min-w-[260px] text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-700"
+              style={{ display: "inline-block" }}
+            >
+              <TypeAnimation
+                sequence={[
+                  "Kirubel Mamushet",
+                  1000,
+                  "Android Developer",
+                  1000,
+                  "UI/UX Designer",
+                  1000,
+                  "Algorithm Engineer",
+                  1000,
+                  "Back-End Developer",
+                  1000,
+                  "Version Control Engineer",
+                  1000,
+                ]}
+                wrapper="span"
+                speed={40}
+                repeat={Infinity}
+                style={{ display: "inline-block" }}
+              />
+            </span>
+          </h1>
 
-const HeroSection =()=>{
-    return <section>
-        <div className="grid grid-cols-1 lg:grid-cols-12">  
-             <div className="col-span-7 place-self-center text-center sm:text-left">
-              <h1 className="text-white nb-4 text-4xl sm:text-5xl lg:text-6xl font-extrabold ">
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-blue-950">
-                  Hello,I'm {""}
+          <p className="text-[#ADB7BE] text-base sm:text-lg mb-6 lg:text-xl mt-5">
+            Best front-end and back-end developer and engineer in Ethiopia and the world.
+          </p>
 
-                  </span>
-                  <br>
-                  </br>
-                  <TypeAnimation
-      sequence={[
-      
-        'kirubel mamushet ',
-        1000, 
-        'Androide Developer ',
-        1000,
-        'Ui/Ux Designer',
-        1000,
-        'Algorithm Engineer',
-        1000,
-        'back-end developer,',
-        1000,
-        'version control engineer',
-        1000
-     
-      ]}
-      wrapper="span"
-      speed={30}
-     
-      repeat={Infinity}
-    />
+          <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <button className="px-6 py-2 rounded-full bg-gradient-to-br from-blue-300 via-blue-600 to-blue-950 text-white hover:opacity-90">
+              Hire Me
+            </button>
+            <button className="px-6 py-2 rounded-full bg-[#121212] border border-blue-700 text-white hover:bg-slate-800">
+              Download CV
+            </button>
+          </div>
+        </div>
 
-                </h1>
-                  <p className="text-[~ADB7BE] text-base sm:text-lg mb-6 lg:text-xl mt-5">
-               Best front-end and back-end developer and enginare in ethiopia nd the world 
-                    </p>
-                    <div>
-                        <button className="px-5 py-2 w-full sm:w-fit rounded-full mr-4 bg-gradient-to-br from-blue-300 via-blue-600 to-blue-950 hover:bg-slate-200 text-white">To Hire Me</button>
-                        <button  className="px-3 py-1 w-full sm:w-fit rounded-full mr-4 bg-gradient-to-br  from-blue-300 via-blue-600 to-blue-950 hover:bg-slate-950 text-white mt-3">
-                            <span className="block bg-[#121212] hover:bg-slate-800 rounded-full px-5 py-1">Download CV</span></button>
-                    </div>
-           </div>
-           <div className ="col-span-5 place-self-center mt-4 lg:mt-0">
-            <div className="rounded-full bg-[#181818] w-[200px] h-[200px] lg:w-[200px] lg:h-[200px]  relative">
-                <Image
-                    src="/image/halo.jpg"
-                    alt="hello world"
-                    className="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-                    width={100}
-                    height={100}
-                />
-                </div>
-           </div>
-    </div>
+        {/* Right side (Image) */}
+        <div className="col-span-5 flex justify-center lg:justify-end">
+          <div className="rounded-full bg-[#181818] w-[250px] h-[250px] lg:w-[300px] lg:h-[300px] relative">
+            <Image
+              src="/image/halo.jpg"
+              alt="Hello World"
+              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full object-cover"
+              width={250}
+              height={250}
+            />
+          </div>
+        </div>
+      </div>
     </section>
+  );
 };
+
 export default HeroSection;
