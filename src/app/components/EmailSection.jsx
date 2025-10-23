@@ -4,8 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import GithubIcon from "../../../public/github-icon.svg"
 import LinkedinIcons from "../../../public/linkedin-icon.svg"
-import { headers } from 'next/headers'
-import { useState } from 'react';
+
 
 const EmailSection = () => {
   const [EmailSubmitted,setEmailSubmitted] =useState(false);
@@ -28,9 +27,10 @@ const EmailSection = () => {
   }
   const response  =await fetch(endpoint,options);
   const resData =await response.json();
-  console.log(resData);
-  if (response.status==='200'){
+  
+  if (response.status=== 200){
     console.log('Message sent.')
+    setEmailSubmitted(true);
   }
 }
   return (
@@ -118,9 +118,15 @@ const EmailSection = () => {
   >
     Submit
   </button>
+  {
+    EmailSubmitted &&  (
+      <p className='text-green-500 text-sm  mt-2'>  
+      Email  sent succesfully! </p>
+    )
+  }
+       
 </div>
-
-                
+         
                   
             </form>
         </div>
