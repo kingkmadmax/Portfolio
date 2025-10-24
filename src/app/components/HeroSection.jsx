@@ -10,12 +10,12 @@ const HeroSection = () => {
         {/* Left side (Text) */}
         <div className="col-span-7 text-center lg:text-left">
           <h1 className="text-white mb-6 text-4xl sm:text-5xl lg:text-7xl font-extrabold leading-tight">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-blue-950">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-blue-900">
               Hello, I'm{" "}
             </span>
             <br />
             <span
-              className="inline-block min-w-[260px] text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-700"
+              className="inline-block min-w-[260px] bg-clip-text bg-gradient-to-r text-white"
               style={{ display: "inline-block" }}
             >
               <TypeAnimation
@@ -30,7 +30,7 @@ const HeroSection = () => {
                   1000,
                   "Back-End Developer",
                   1000,
-                  "Version Control Engineer",
+                  "Project Manger",
                   1000,
                 ]}
                 wrapper="span"
