@@ -1,6 +1,7 @@
-"use client";
+"use client"
 import React from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
 
 const HeroSection = () => {
@@ -8,7 +9,12 @@ const HeroSection = () => {
     <section className="lg:py-16">
       <div className="grid grid-cols-1 lg:grid-cols-12 items-center gap-8">
         {/* Left side (Text) */}
-        <div className="col-span-7 text-center lg:text-left">
+        <motion.div
+          initial={{ opacity: 0, scale:0 }}
+          animate={{ opacity: 1 ,scale:1}}
+          transition={{ duration: 0.5 }}
+          className="col-span-7 text-center lg:text-left"
+        >
           <h1 className="text-white mb-6 text-4xl sm:text-5xl lg:text-7xl font-extrabold leading-tight">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-blue-900">
               Hello, I'm{" "}
@@ -30,7 +36,7 @@ const HeroSection = () => {
                   1000,
                   "Back-End Developer",
                   1000,
-                  "Project Manger",
+                  "Project Manager",
                   1000,
                 ]}
                 wrapper="span"
@@ -53,20 +59,24 @@ const HeroSection = () => {
               Download CV
             </button>
           </div>
-        </div>
+        </motion.div>
 
         {/* Right side (Image) */}
-        <div className="col-span-5 flex justify-center lg:justify-end">
-          <div className="rounded-full bg-[#181818] w-[250px] h-[250px] lg:w-[300px] lg:h-[300px] relative">
+        <motion.div className="col-span-5 flex justify-center lg:justify-end">
+          <div 
+           initial={{ opacity: 0, scale:0 }}
+          animate={{ opacity: 1 ,scale:1}}
+          transition={{ duration: 1.5 }}
+          className="rounded-full bg-[#181818] w-[250px] h-[250px] lg:w-[300px] lg:h-[300px] relative">
             <Image
               src="/image/halo.jpg"
-              alt="Hello World"
+              alt="Kirubel mamushet"
               className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full object-cover"
               width={250}
               height={250}
             />
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
