@@ -2,7 +2,7 @@
 import React,{useState,useRef} from "react"
 import ProjectCard from "./ProjectCard";
 import ProjectTag from "./ProjectTag";
-import { motion, useInView } from "framer-motion";
+import { animate, motion, useInView } from "framer-motion";
 const Project_Data =[
     {
         id:1,
@@ -70,9 +70,15 @@ const ProjectSection =() =>{
     };
     const filteredProjects = Project_Data.filter((project)=>
         project.tag.includes(tag)
+
     );
+
+    const cardVariants ={
+        initial:{y:50,opacity:0},
+        animate:{y:0,opacity:1},
+    };
     return (
-        <>
+        <section ref={ref}>
             <h2 className="text-center text-4xl font-bold text-white mt-4">My projects
 
             </h2>
@@ -95,6 +101,11 @@ const ProjectSection =() =>{
             </div>
            <div className="grid md:grid-cols-3 gap-8 md:gap-12">
             {filteredProjects.map((project) => 
+            <motion.li
+            variants={cardVariants}
+            initial="initial"
+            animate={isInView ?"animate":"inital"}
+            >
             <ProjectCard 
             key={project.id}
             title={project.title}
@@ -104,8 +115,10 @@ const ProjectSection =() =>{
             gitUrl={project.gitUrl}
             previwUrl={project.previwUrl}
 
-            /> )}</div>
-        </>
+            />
+            
+            </motion.li> )}</div>
+        </section>
 
     )
 }

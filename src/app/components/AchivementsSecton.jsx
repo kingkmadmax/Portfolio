@@ -1,7 +1,7 @@
 'use client'
 import React from 'react';
 import dynamic from 'next/dynamic';
-import { motion } from 'framer-motion';
+
  const AnimatedNumbers = dynamic(()=>
   {return import("react-animated-numbers")},
 
